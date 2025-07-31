@@ -1,0 +1,19 @@
+app:
+  env: development
+  shutdown_timeout: 30s
+
+rabbitmq:
+  url: amqp://${RABBITMQ_USER:-admin}:${RABBITMQ_PASS:-admin123}@rabbitmq:5672/
+  retry:
+    max_attempts: 3
+    delay: 1s
+
+database:
+  url: postgres://${DB_USER:-appuser}:${DB_PASS:-apppass}@postgres:5432/${DB_NAME:-messaging}?sslmode=disable
+  max_open_conns: 25
+  max_idle_conns: 5
+  conn_max_lifetime: 5m
+
+workers:
+  default_count: 3
+  max_count: 10
