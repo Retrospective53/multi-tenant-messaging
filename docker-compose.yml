@@ -6,8 +6,8 @@ services:
       - "5672:5672"  # AMQP
       - "15672:15672"  # Management UI
     environment:
-      RABBITMQ_DEFAULT_USER: admin
-      RABBITMQ_DEFAULT_PASS: admin123
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: pass
     healthcheck:
       test: rabbitmq-diagnostics -q ping
       interval: 30s
@@ -20,9 +20,9 @@ services:
     image: postgres:17-alpine
     container_name: messaging-postgres
     environment:
-      POSTGRES_USER: appuser
-      POSTGRES_PASSWORD: apppass
-      POSTGRES_DB: messaging
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: app
     ports:
       - "5432:5432"
     volumes:

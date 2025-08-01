@@ -9,7 +9,7 @@ rabbitmq:
     delay: 1s
 
 database:
-  url: postgres://${DB_USER:-appuser}:${DB_PASS:-apppass}@postgres:5432/${DB_NAME:-messaging}?sslmode=disable
+  url: postgres://${DB_USER:-user}:${DB_PASS:-pass}@postgres:5432/${DB_NAME:-app}?sslmode=disable
   max_open_conns: 25
   max_idle_conns: 5
   conn_max_lifetime: 5m
